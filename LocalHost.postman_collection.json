@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "63c2864c-60fd-45b1-a97a-dc0af1832770",
+		"name": "LocalHost",
+		"description": "- **Root** (devuelve un h1 con un texto).\n    \n- **Get All Movies** (Obtiene todas la peliculas, tanto para JSON local como MongoDB.\n    \n- **Get Movies by ID** (Obtiene las peliculas por ID, si es el JSON local se hace desde el 1 al 10, sino primero hacer una lectura del Get All Movies, obtener in _id y pegarlo a contiguación de la petición.\n    \n- **Delete Info** (idem al anterior referido al ID o _id).\n    \n- **Modifica uno** (idem al anterior referido al ID o _id).\n    \n- Modificar uno con error (le falta un parámetro, maneja el error)\n    \n- **Agregar uno** (agrega mediante un JSON una nueva película, si es localmente agrega un ID = ID + 1, incrementando el último, sino el _id es un número aleatorio de MongoDB).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17710339"
+	},
+	"item": [
+		{
+			"name": "Get All Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/movies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movies by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/movies/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Info",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/movies/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar uno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"The Prestige\",\r\n    \"director\": \"Christopher Nolan\",\r\n    \"anio_estreno\": 2006,\r\n    \"genero\": \"Drama\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar uno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"Prueba Modificación\", \r\n    \"director\": \"Nolan\",\r\n    \"anio_estreno\": 2008,\r\n    \"genero\": \"Drama\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/movies/6685306e837d8976e9b5de1c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies",
+						"6685306e837d8976e9b5de1c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar uno con error (falta parámetro)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"Prueba Modificación\", \r\n    \"director\": \"Nolan\",\r\n    \"anio_estreno\": 2008,\r\n    \"genero\": \"Drama\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/movies/6685306e837d8976e9b5de1c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies",
+						"6685306e837d8976e9b5de1c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
